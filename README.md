@@ -1,3 +1,12 @@
+### TODO
+
+- pre-hooks
+- prettier
+- husky
+- lint-staged
+- styled-components
+- ssr
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

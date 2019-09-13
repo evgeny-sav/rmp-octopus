@@ -8,7 +8,7 @@
     "test": "cross-env CI=true node scripts/test.js",
     "server:start": "nodemon ./dist/server.bundle.js",
     "server:dev": "cross-env NODE_ENV=development nodemon --exec babel-node -- ./server/index.js",
-    "server:build": "webpack --config webpack.config.js",
+    "server:build": "webpack --config config/webpack.server.config.js",
     "eslint": "eslint **/*.{jsx,js}",
     "eslint:fix": "eslint --fix **/*.{jsx,js}",
     "stylelint": "stylelint **/*.scss",
@@ -35,6 +35,7 @@
     "babel-jest": "^24.8.0",
     "babel-loader": "8.0.6",
     "babel-plugin-named-asset-import": "^0.3.3",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-react-app": "^9.0.1",
     "body-parser": "^1.19.0",
     "camelcase": "^5.2.0",
@@ -98,6 +99,7 @@
     "webpack": "4.39.1",
     "webpack-dev-server": "3.2.1",
     "webpack-manifest-plugin": "2.0.4",
+    "webpack-node-externals": "^1.7.2",
     "winston": "^3.2.1",
     "workbox-webpack-plugin": "4.3.1"
   },
@@ -160,5 +162,8 @@
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
     ]
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.8"
   }
 }

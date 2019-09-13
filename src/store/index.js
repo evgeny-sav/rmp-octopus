@@ -5,7 +5,7 @@ import itemReducer from '../reducers/itemReducer';
 
 const composeEnhancers = composeWithDevTools({});
 const reducers = combineReducers({
-    item: itemReducer
+  item: itemReducer,
 });
 const middleware = applyMiddleware(thunk);
 const store = createStore(reducers, composeEnhancers(middleware));

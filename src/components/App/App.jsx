@@ -1,27 +1,35 @@
-import React, { useEffect } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.scss';
 
 import fetchItem from '../../actions/itemActions';
 
-function App({item, dispatch}) {
-  useEffect(() => {
-    dispatch(fetchItem());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+class App extends Component {
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Hello World</h1>
-        <p>{item.ok.toString()}</p>
-      </header>
-    </div>
-  );
+  componentDidMount() {
+    const { fetch } = this.props;
+    fetch();
+  }
+
+  render() {
+    const { item } = this.props;
+    return(
+      <div className="App">
+        <header className="App-header">
+          <h1>Hello World</h1>
+          <p>{item.ok.toString()}</p>
+        </header>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = ({item}) => ({
   item
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => ({
+  fetch: () => dispatch(fetchItem()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
